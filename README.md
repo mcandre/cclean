@@ -30,6 +30,8 @@ $ tree
 └── hello.c
 ```
 
+By default, cclean assumes the current working directory as the cmake build directory. Like cmake, cclean also accepts a `-B <path>` flag to customize the build directory.
+
 See `cclean -h` for more options.
 
 # ABOUT
@@ -42,7 +44,6 @@ cclean is particularly helpful for cross-platform workflows. For example, when b
 
 # NOTABLE FEATURES
 
-* cclean assumes the current working directory for the cmake build directory, as in `cmake [-B] .`
 * cclean uses portable commands to remove artifacts
 * cclean runs independently of cmake, enabling it to remove sticky cmake artifacts like `.ninja_log`
 * cclean wraps the cmake global `clean` target

@@ -1,5 +1,6 @@
 .crit
 bin
+build
 build.ninja
 html
 latex

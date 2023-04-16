@@ -52,8 +52,10 @@ fn uninstall() {
 
 /// Run tests
 fn test() {
+    let build_dir: &str = "build";
+
     assert!(
-        tinyrick::exec_mut_with_arguments!("cmake", &["-G", "Ninja", "."])
+        tinyrick::exec_mut_with_arguments!("cmake", &["-B", &build_dir, "-G", "Ninja"])
             .current_dir("example")
             .stdout(process::Stdio::piped())
             .stderr(process::Stdio::piped())
@@ -62,8 +64,19 @@ fn test() {
             .success()
     );
 
+    assert!(tinyrick::exec_mut_with_arguments!(
+        "cmake",
+        &["--build", &build_dir, "--target", "hello"]
+    )
+    .current_dir("example")
+    .stdout(process::Stdio::piped())
+    .stderr(process::Stdio::piped())
+    .status()
+    .unwrap()
+    .success());
+
     assert!(
-        tinyrick::exec_mut_with_arguments!("cmake", &["--build", ".", "--target", "hello"])
+        tinyrick::exec_mut_with_arguments!("cclean", &["-B", &build_dir])
             .current_dir("example")
             .stdout(process::Stdio::piped())
             .stderr(process::Stdio::piped())
@@ -71,18 +84,11 @@ fn test() {
             .unwrap()
             .success()
     );
-
-    assert!(tinyrick::exec_mut!("cclean")
-        .current_dir("example")
-        .stdout(process::Stdio::piped())
-        .stderr(process::Stdio::piped())
-        .status()
-        .unwrap()
-        .success());
 
     assert!(!path::Path::new("example/.ninja_log").exists());
     assert!(!path::Path::new("example/build.ninja").exists());
     assert!(!path::Path::new("example/Makefile").exists());
+    assert!(!path::Path::new("example/build").exists());
 }
 
 /// Build: Doc, lint, test, and compile
