@@ -1,0 +1,27 @@
+[package]
+name = "cclean"
+description = "a cmake sanitizer"
+version = "0.0.1"
+authors = ["Andrew Pennebaker <andrew.pennebaker@gmail.com>"]
+license = "BSD-2-Clause"
+homepage = "https://github.com/mcandre/cclean"
+
+[dependencies]
+die = "0.2.0"
+getopts = "0.2.21"
+lazy_static = "1.4.0"
+regex = "1.7.3"
+tinyrick = { version = "^0.0.9", optional = true }
+tinyrick_extras = { version = "^0.0.6", optional = true }
+
+[features]
+letmeout = ["tinyrick", "tinyrick_extras"]
+
+[[bin]]
+name = "cclean"
+path = "src/cclean.rs"
+
+[[bin]]
+name = "tinyrick"
+path = "tinyrick.rs"
+required-features = ["letmeout"]
