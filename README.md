@@ -45,30 +45,13 @@ cclean is particularly helpful for cross-platform workflows. For example, when b
 * cclean assumes the current working directory for the cmake build directory, as in `cmake [-B] .`
 * cclean uses portable commands to remove artifacts
 * cclean runs independently of cmake, enabling it to remove sticky cmake artifacts like `.ninja_log`
-* cclean integrates with the cmake global `clean` target, such as cmake `ADDITIONAL_CLEAN_FILES` file paths
-* cclean removes artifacts for the standard cmake *cached* directory variables `CMAKE_RUNTIME_OUTPUT_DIRECTORY` and `EXECUTABLE_OUTPUT_PATH`
-* cclean removes the common Doxygen artifact directories `html` and `latex`
-* cclean removes common artifacts for `make`, `ninja`, and `MSVC`
-* cclean removes `ctest` artifacts
-* cclean removes `conan` artifacts, including packages installed via conan
+* cclean wraps the cmake global `clean` target
+* cclean removes cached `conan` packages
+* cclean removes the `.ninja_log` artifact
 
 # WARNING
 
-```text
-/!\ Use cclean at your own risk. /!\
-```
-
-cclean deletes files.
-
-This is not a dry run.
-
-Take appropriate precautions before running cclean, including:
-
-* Read cclean documentation thoroughly.
-* Maintain regular, reversible backups of your work on a separate host.
-* Inspect staged version control changes before comitting them.
-* Confirm working directory paths.
-* Rename any manually written build configurations `Makefile`, `build.ninja`, etc. to a substantially different filename. Minor casing variations such as `makefile`, `Build.ninja`, etc. are NOT substantially different.
+Configure the cmake global `clean` target (esp. `ADDITIONAL_CLEAN_FILES`) carefully, in order to avoid accidents.
 
 # CRATE
 

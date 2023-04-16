@@ -81,6 +81,8 @@ fn test() {
         .success());
 
     assert!(!path::Path::new("example/.ninja_log").exists());
+    assert!(!path::Path::new("example/build.ninja").exists());
+    assert!(!path::Path::new("example/Makefile").exists());
 }
 
 /// Build: Doc, lint, test, and compile
