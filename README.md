@@ -57,6 +57,10 @@ Configure the cmake global `clean` target (esp. `ADDITIONAL_CLEAN_FILES`) carefu
 
 https://crates.io/crates/cclean
 
+# API DOCUMENTATION
+
+https://docs.rs/cclean/latest/cclean/
+
 # INSTALL FROM SOURCE
 
 ```console
