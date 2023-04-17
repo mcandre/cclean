@@ -4,6 +4,10 @@
 
 cclean cleans up cmake's messiest build artifacts.
 
+This is mainly useful for in-source builds. In fact, cmake recommends out of source builds. For cmake projects that use out of source builds, you can either run `cmake -E rm -rf <build directory>`...
+
+Or, you can script more complex cleanup tasks with the [rez](https://github.com/mcandre/rez) C/C++ task runner.
+
 # EXAMPLE
 
 ```console
