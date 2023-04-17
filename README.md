@@ -70,7 +70,7 @@ Fortunately, LLVM for Windows provides operational workarounds.
 * `cmake -G "Unix Makefiles" <build directory>`
 * `cmake -G Ninja <build directory>`
 
-Both of these cmake generator implementations will generally respect `ADDITIONAL_CLEAN_FILES`. Except for the `.ninja_log` file, which cclean knows to automatically remove.
+Both of these cmake generator implementations will generally respect the cmake variable `ADDITIONAL_CLEAN_FILES`. Except when the variable contains an entry for the `.ninja_log` file, which fortunately cclean knows to automatically remove.
 
 ## Further research
 
