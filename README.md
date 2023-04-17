@@ -74,9 +74,7 @@ Both of these cmake generator implementations will generally respect your `ADDIT
 
 ## Further research
 
-We are interested to hear reports of how to setup cmake with the
-
-We are interested to hear reports of how cmake and cclean behave when using clang-cl.
+We are interested to hear reports of how cmake and cclean behave when using clang-cl or other generators.
 
 # CRATE
 
