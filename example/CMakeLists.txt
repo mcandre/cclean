@@ -7,19 +7,7 @@ set_property(
     DIRECTORY .
     APPEND PROPERTY
     ADDITIONAL_CLEAN_FILES
-    "${CMAKE_RUNTIME_OUTPUT_DIRECTORY};x64;x86;debug;debug.log;install_manifest.txt;Makefile;build.ninja;rules.ninja;.ninja_deps;Testing;CTestTestfile.cmake;CMakeFiles;CMakeCache.txt;cmake_install.cmake;conanbuildinfo.cmake;conanbuildinfo.txt;conaninfo.txt;graph_info.json;conan.lock;latex;html"
+    "${CMAKE_RUNTIME_OUTPUT_DIRECTORY};install_manifest.txt;Makefile;build.ninja;rules.ninja;.ninja_deps;Testing;CTestTestfile.cmake;CMakeFiles;CMakeCache.txt;cmake_install.cmake;conanbuildinfo.cmake;conanbuildinfo.txt;conaninfo.txt;graph_info.json;conan.lock;latex;html"
 )
-
-if(MSVC)
-    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}")
-    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_DEBUG "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}")
-    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_RELEASE "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}")
-    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}")
-    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_DEBUG "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}")
-    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}")
-    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}")
-    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}")
-    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}")
-endif()
 
 add_executable(hello hello.c)
