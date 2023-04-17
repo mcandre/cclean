@@ -47,7 +47,7 @@ cclean is particularly helpful for cross-platform workflows. For example, when b
 * cclean wraps the cmake global `clean` target
 * cclean removes cached `conan` packages
 
-Like cmake, cclean encourages portable build steps. This enables cmake projects to build more reliably on more environments.
+Like cmake, cclean encourages portable build steps. This enables cmake projects to build more reliably on difference machines.
 
 # WARNING
 
